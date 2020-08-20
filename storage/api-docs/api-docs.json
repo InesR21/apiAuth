@@ -1,0 +1,134 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Auth",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000/"
+        }
+    ],
+    "paths": {
+        "/api/login": {
+            "post": {
+                "description": "login",
+                "operationId": "App\\Http\\Controllers\\apiAuth\\AuthController::login",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success and Token"
+                    }
+                }
+            }
+        },
+        "/api/register": {
+            "post": {
+                "description": "register",
+                "operationId": "App\\Http\\Controllers\\apiAuth\\AuthController::register",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "c_password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success and Token"
+                    }
+                }
+            }
+        },
+        "/api/emailValidation/{email}": {
+            "get": {
+                "description": "validate an email",
+                "operationId": "App\\Http\\Controllers\\apiAuth\\AuthController::emailValidation",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "description": " validate an email",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "accept",
+                        "in": "header",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "return a JSON with true if it is a valid email, or false if it is not"
+                    }
+                }
+            }
+        }
+    }
+}
