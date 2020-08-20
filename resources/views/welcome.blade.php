@@ -61,6 +61,9 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            p {
+                font-size: 25px;
+            }
         </style>
     </head>
     <body>
@@ -75,7 +78,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Api Auth
+                    Api Auth <br>
+                    <p>By: Ines Rojas</p>
+                    
                 </div>
             </div>
         </div>
